@@ -1218,6 +1218,12 @@ public:
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_MODE);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_TL);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_TR);
+    ioctl(uinput_fd, UI_SET_KEYBIT, BTN_TL2);
+    ioctl(uinput_fd, UI_SET_KEYBIT, BTN_TR2);
+    ioctl(uinput_fd, UI_SET_KEYBIT, BTN_DPAD_UP);
+    ioctl(uinput_fd, UI_SET_KEYBIT, BTN_DPAD_DOWN);
+    ioctl(uinput_fd, UI_SET_KEYBIT, BTN_DPAD_LEFT);
+    ioctl(uinput_fd, UI_SET_KEYBIT, BTN_DPAD_RIGHT);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_THUMBL);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_THUMBR);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_START);
@@ -1230,10 +1236,10 @@ public:
     ioctl(uinput_fd, UI_SET_ABSBIT, ABS_Y);
     ioctl(uinput_fd, UI_SET_ABSBIT, ABS_RX);
     ioctl(uinput_fd, UI_SET_ABSBIT, ABS_RY);
-    ioctl(uinput_fd, UI_SET_ABSBIT, ABS_Z);  // L2
-    ioctl(uinput_fd, UI_SET_ABSBIT, ABS_RZ); // R2
-    ioctl(uinput_fd, UI_SET_ABSBIT, ABS_HAT0X);
-    ioctl(uinput_fd, UI_SET_ABSBIT, ABS_HAT0Y);
+    // ioctl(uinput_fd, UI_SET_ABSBIT, ABS_Z);  // L2
+    // ioctl(uinput_fd, UI_SET_ABSBIT, ABS_RZ); // R2
+    // ioctl(uinput_fd, UI_SET_ABSBIT, ABS_HAT0X);
+    // ioctl(uinput_fd, UI_SET_ABSBIT, ABS_HAT0Y);
 
     uinput_device.absmin[ABS_X] = 0;
     uinput_device.absmax[ABS_X] = 255;
@@ -1247,10 +1253,10 @@ public:
     uinput_device.absmax[ABS_Z] = 255;
     uinput_device.absmin[ABS_RZ] = 0;
     uinput_device.absmax[ABS_RZ] = 255;
-    uinput_device.absmin[ABS_HAT0X] = -1;
-    uinput_device.absmax[ABS_HAT0X] = 1;
-    uinput_device.absmin[ABS_HAT0Y] = -1;
-    uinput_device.absmax[ABS_HAT0Y] = 1;
+    // uinput_device.absmin[ABS_HAT0X] = -1;
+    // uinput_device.absmax[ABS_HAT0X] = 1;
+    // uinput_device.absmin[ABS_HAT0Y] = -1;
+    // uinput_device.absmax[ABS_HAT0Y] = 1;
 
     write(uinput_fd, &uinput_device, sizeof(uinput_device));
 
