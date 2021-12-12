@@ -1201,10 +1201,10 @@ public:
 
 
     uinput_device.id.bustype = BUS_USB;
-    uinput_device.id.vendor = 0x045e;  // Microsoft
-    uinput_device.id.product = 0x028e; // XBOX 360
-    uinput_device.id.version = 0x110;  // dunno but xboxdrv uses this
-    strncpy(uinput_device.name, "Switch ProController disguised as XBox360",
+    uinput_device.id.vendor = 0x057e;  // Nintendo Co., Ltd
+    uinput_device.id.product = 0x2009; // Switch Pro Controller
+    uinput_device.id.version = 0x0001; // ???
+    strncpy(uinput_device.name, "Switch Pro Controller",
             UINPUT_MAX_NAME_SIZE);
 
 
