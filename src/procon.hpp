@@ -489,7 +489,7 @@ public:
     uinput_manage_buttons(dat[0x0f], dat[0x0e], dat[0x0d]);
     uinput_manage_joysticks(dat[0x10], dat[0x11], dat[0x12], dat[0x13],
                             dat[0x14], dat[0x15]);
-    uinput_manage_dpad(dat[0x0f]);
+    // uinput_manage_dpad(dat[0x0f]);
 
     // print_buttons(dat[0x0f], dat[0x0e], dat[0x0d]);
     // print_sticks(dat[0x10], dat[0x11], dat[0x12], dat[0x13], dat[0x14],
@@ -916,10 +916,10 @@ public:
   void uinput_manage_buttons(const char &left, const char &mid,
                              const char &right) {
 
-    // bool b_d_left = left & byte_button_value(d_left);
-    // bool b_d_right = left & byte_button_value(d_right);
-    // bool b_d_up = left & byte_button_value(d_up);
-    // bool b_d_down = left & byte_button_value(d_down);
+    bool b_d_left = left & byte_button_value(d_left);
+    bool b_d_right = left & byte_button_value(d_right);
+    bool b_d_up = left & byte_button_value(d_up);
+    bool b_d_down = left & byte_button_value(d_down);
     bool b_L1 = left & byte_button_value(L1);
     bool b_L2 = left & byte_button_value(L2);
     bool b_L3 = mid & byte_button_value(L3);
@@ -966,32 +966,32 @@ public:
       uinput_button_down(BTN_NORTH);
 #endif
 
-    // if (b_d_down && !last_d_down)
-    //   uinput_button_down(BTN_DPAD_DOWN);
-    // if (b_d_up && !last_d_up)
-    //   uinput_button_down(BTN_DPAD_UP);
-    // if (b_d_left && !last_d_left)
-    //   uinput_button_down(BTN_DPAD_LEFT);
-    // if (b_d_right && !last_d_right)
-    //   uinput_button_down(BTN_DPAD_RIGHT);
+    if (b_d_down && !last_d_down)
+      uinput_button_down(BTN_DPAD_DOWN);
+    if (b_d_up && !last_d_up)
+      uinput_button_down(BTN_DPAD_UP);
+    if (b_d_left && !last_d_left)
+      uinput_button_down(BTN_DPAD_LEFT);
+    if (b_d_right && !last_d_right)
+      uinput_button_down(BTN_DPAD_RIGHT);
     if (b_plus && !last_plus)
       uinput_button_down(BTN_START);
     if (b_minus && !last_minus)
       uinput_button_down(BTN_SELECT);
     if (b_L1 && !last_L1)
       uinput_button_down(BTN_TL);
-    // if (b_L2 && !last_L2)
-    //   uinput_button_down(BTN_TL2);
+    if (b_L2 && !last_L2)
+      uinput_button_down(BTN_TL2);
     if (b_R1 && !last_R1)
       uinput_button_down(BTN_TR);
-    // if (b_R2 && !last_R2)
-    //   uinput_button_down(BTN_TR2);
+    if (b_R2 && !last_R2)
+      uinput_button_down(BTN_TR2);
     if (b_L3 && !last_L3)
       uinput_button_down(BTN_THUMBL);
     if (b_R3 && !last_R3)
       uinput_button_down(BTN_THUMBR);
-    // if (b_L1 && !last_L1)
-    //   uinput_button_down(BTN_TL);
+    if (b_L1 && !last_L1)
+      uinput_button_down(BTN_TL);
     if (b_home && !last_home)
       uinput_button_down(BTN_MODE);
 
@@ -1013,44 +1013,44 @@ public:
       uinput_button_release(BTN_NORTH);
 #endif
 
-    // if (!b_d_down && last_d_down)
-    //   uinput_button_release(BTN_DPAD_DOWN);
-    // if (!b_d_up && last_d_up)
-    //   uinput_button_release(BTN_DPAD_UP);
-    // if (!b_d_left && last_d_left)
-    //   uinput_button_release(BTN_DPAD_LEFT);
-    // if (!b_d_right && last_d_right)
-    //   uinput_button_release(BTN_DPAD_RIGHT);
+    if (!b_d_down && last_d_down)
+      uinput_button_release(BTN_DPAD_DOWN);
+    if (!b_d_up && last_d_up)
+      uinput_button_release(BTN_DPAD_UP);
+    if (!b_d_left && last_d_left)
+      uinput_button_release(BTN_DPAD_LEFT);
+    if (!b_d_right && last_d_right)
+      uinput_button_release(BTN_DPAD_RIGHT);
     if (!b_plus && last_plus)
       uinput_button_release(BTN_START);
     if (!b_minus && last_minus)
       uinput_button_release(BTN_SELECT);
     if (!b_L1 && last_L1)
       uinput_button_release(BTN_TL);
-    // if (!b_L2 && last_L2)
-    //   uinput_button_release(BTN_TL2);
+    if (!b_L2 && last_L2)
+      uinput_button_release(BTN_TL2);
     if (!b_R1 && last_R1)
       uinput_button_release(BTN_TR);
-    // if (!b_R2 && last_R2)
-    //   uinput_button_release(BTN_TR2);
+    if (!b_R2 && last_R2)
+      uinput_button_release(BTN_TR2);
     if (!b_L3 && last_L3)
       uinput_button_release(BTN_THUMBL);
     if (!b_R3 && last_R3)
       uinput_button_release(BTN_THUMBR);
-    // if (!b_L1 && last_L1)
-    //   uinput_button_release(BTN_TL);
+    if (!b_L1 && last_L1)
+      uinput_button_release(BTN_TL);
     if (!b_home && last_home)
       uinput_button_release(BTN_MODE);
 
-    // last_d_left = b_d_left;
-    // last_d_right = b_d_right;
-    // last_d_up = b_d_up;
-    // last_d_down = b_d_down;
+    last_d_left = b_d_left;
+    last_d_right = b_d_right;
+    last_d_up = b_d_up;
+    last_d_down = b_d_down;
     last_L1 = b_L1;
-    // last_L2 = b_L2;
+    last_L2 = b_L2;
     last_L3 = b_L3;
     last_R1 = b_R1;
-    // last_R2 = b_R2;
+    last_R2 = b_R2;
     last_R3 = b_R3;
     last_share = b_share;
     last_home = b_home;
@@ -1062,10 +1062,10 @@ public:
     last_y = b_y;
 
     // do triggers here as well
-    int val = b_L2 ? 255 : 0;
-    uinput_write_single_joystick(val, ABS_Z);
-    val = b_R2 ? 255 : 0;
-    uinput_write_single_joystick(val, ABS_RZ);
+    // int val = b_L2 ? 255 : 0;
+    // uinput_write_single_joystick(val, ABS_Z);
+    // val = b_R2 ? 255 : 0;
+    // uinput_write_single_joystick(val, ABS_RZ);
 
     // send report
     uinput_event.type = EV_SYN;
@@ -1356,15 +1356,15 @@ public:
   uint8_t right_x_max = 0x7e;
   uint8_t right_y_max = 0x7e;
 
-  // bool last_d_left = false;
-  // bool last_d_right = false;
-  // bool last_d_up = false;
-  // bool last_d_down = false;
+  bool last_d_left = false;
+  bool last_d_right = false;
+  bool last_d_up = false;
+  bool last_d_down = false;
   bool last_L1 = false;
-  // bool last_L2 = false;
+  bool last_L2 = false;
   bool last_L3 = false;
   bool last_R1 = false;
-  // bool last_R2 = false;
+  bool last_R2 = false;
   bool last_R3 = false;
   bool last_share = false;
   bool last_home = false;
