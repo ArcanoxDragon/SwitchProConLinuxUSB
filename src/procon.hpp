@@ -992,6 +992,8 @@ public:
       uinput_button_down(BTN_THUMBR);
     if (b_L1 && !last_L1)
       uinput_button_down(BTN_TL);
+    if (b_share && !last_share)
+      uinput_button_down(BTN_EXTRA);
     if (b_home && !last_home)
       uinput_button_down(BTN_MODE);
 
@@ -1039,6 +1041,8 @@ public:
       uinput_button_release(BTN_THUMBR);
     if (!b_L1 && last_L1)
       uinput_button_release(BTN_TL);
+    if (!b_share && last_share)
+      uinput_button_release(BTN_EXTRA);
     if (!b_home && last_home)
       uinput_button_release(BTN_MODE);
 
@@ -1216,6 +1220,7 @@ public:
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_NORTH);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_WEST);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_MODE);
+    ioctl(uinput_fd, UI_SET_KEYBIT, BTN_EXTRA);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_TL);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_TR);
     ioctl(uinput_fd, UI_SET_KEYBIT, BTN_TL2);
